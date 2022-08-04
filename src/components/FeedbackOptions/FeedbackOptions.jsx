@@ -10,7 +10,7 @@ export const FeedBackOptions = ({ options, onLeaveFeedback }) => {
             key={option}
             type="button"
             name={option}
-            onClick={onLeaveFeedback}
+            onClick={() => onLeaveFeedback(option)}
             className={style.feed_back__btn}
           >
             {option}

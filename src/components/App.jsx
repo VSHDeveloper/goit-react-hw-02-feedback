@@ -7,12 +7,10 @@ import { Notification } from './Notification/Notification';
 class App extends Component {
   state = { good: 0, neutral: 0, bad: 0 };
 
-  handleLeaveFeedback = event => {
-    const eventNameBtn = event.target.name;
-
-    this.setState(prevState => ({
-      [eventNameBtn]: prevState[eventNameBtn] + 1,
-    }));
+  handleLeaveFeedback = option => {
+        this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+          }));
   };
 
   countTotalFeedback = () => {
@@ -36,9 +34,9 @@ class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedBackOptions
-            options={options}
-            onLeaveFeedback={this.handleLeaveFeedback}
-          />
+            options={options} // options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleLeaveFeedback} 
+            />
         </Section>
 
         {total > 0 ? (
